@@ -3,11 +3,13 @@
  * It is easy to draw the histogram with the bars horizontal;
  * a vertical orientation is more challenging.
  */
+
 #include <stdio.h>
 
 #define TRUE      1
 #define FALSE     0
 #define MAXLENGTH 15
+
 main()
 {
    int length[MAXLENGTH], i, j, counter, word, longest;

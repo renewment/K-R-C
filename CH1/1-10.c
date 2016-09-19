@@ -8,7 +8,9 @@
  * to print backspace:
  * http://stackoverflow.com/questions/20142215/not-being-able-to-get-backspace-character-b-in-the-output-on-ubuntu-kr-exam
  */
+
 #include <stdio.h>
+
 main()
 {
    char c;

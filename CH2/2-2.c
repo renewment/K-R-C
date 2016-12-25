@@ -1,7 +1,9 @@
 /*
  * for (i=0; i<lim-1 && (c=getchar(()) != '\n' && c != EOF; ++i)
  *     s[i] = c;
- * Write A loop equivalent to the for loop above without using && or ||
+ *
+ * Exercise 2-2. Write A loop equivalent to the for loop above without using &&
+ * or ||.
  *
  */
 

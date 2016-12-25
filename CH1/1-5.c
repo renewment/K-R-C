@@ -1,6 +1,6 @@
 /*
- * Modify the temperature convension program to print the table in reverse order,
- * that is, from 300 degrees to 0.
+ * Exercise 1-5. Modify the temperature convension program to print the table in
+ * reverse order, that is, from 300 degrees to 0.
  */
 
 #include <stdio.h>

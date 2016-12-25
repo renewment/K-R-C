@@ -1,5 +1,6 @@
 /*
- * Write a program to print all input lines that are longer than 80 characters.
+ * Exercise 1-17. Write a program to print all input lines that are longer than
+ * 80 characters.
  */
 
 #include <stdio.h>
@@ -15,7 +16,7 @@ main()
    
    while ((len = copy(line, MAXLINE)) > 0)
       if (len > 80)
-         printf("length is %d, test is %s\n" , len, line);
+         printf("length is %d, text is %s\n" , len, line);
       else
          printf("length is %d\n", len);
    

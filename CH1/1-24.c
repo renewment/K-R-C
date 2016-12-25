@@ -1,9 +1,8 @@
 /*
- * Write a program to check a C program for redimentary
- * syntax errors like unbalanced parantheses, brackets
- * and braces. Don't forget about quotes, both single
- * and double, escape sequences, and comments. (this
- * program is hard if you do it in full generality.)
+ * Exercise 1-24. Write a program to check a C program for redimentary syntax
+ * errors like unbalanced parantheses, brackets and braces. Don't forget about
+ * quotes, both single and double, escape sequences, and comments. (this program
+ * is hard if you do it in full generality.)
  */
 
 #include "stdio.h"
@@ -50,7 +49,7 @@ main()
       }
       else if (c == '}') {
          if (inContext == 1) {
-            if (bracket[index-1] != '{')                                   // mismatch
+            if (bracket[index-1] != '{')                                // mismatch
                error(currentLine, currentWord, c, word[index-1]);
             else {                                                      // match
                --index;
@@ -71,7 +70,7 @@ main()
       }
       else if (c == ']') {
          if (inContext == 1) {
-            if (bracket[index-1] != '[')                                   // mismatch
+            if (bracket[index-1] != '[')                                // mismatch
                error(currentLine, currentWord, c, word[index-1]);
             else {                                                      // used for array
                --index;

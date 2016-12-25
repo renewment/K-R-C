@@ -1,6 +1,6 @@
 /*
- * Write a function reverse(s) that reverse the character string s.
- * Use it to write a program that reverse its input a line at a time.
+ * Exercise 1-19. Write a function reverse(s) that reverse the character string
+ * s. Use it to write a program that reverse its input a line at a time.
  */
 
 #include <stdio.h>

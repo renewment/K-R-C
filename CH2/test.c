@@ -14,8 +14,11 @@ main()
    printf("a = %d\n" , a);
    printf("f = %f\n" , f);
    
-   unsigned int ui = 0b111;
-   printf("unsigned int ui: %u\n" , ui);
-   printf("ui >> -2: %u\n" , ui >> (-2));
+   unsigned int ui;
+   ui = 1 << 1;
+   printf("ui << 1 : %u\n" , ui);
+   
+   ui = 3 + -(-1); // !!!
+   printf("u = %u\n" , ui);
 	return 0;
 }

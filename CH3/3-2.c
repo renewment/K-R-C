@@ -51,14 +51,6 @@ void escape(char s[], char t[])
          s[count++] = '\\';
          s[count++] = 'b';
          break;
-      case '\"':
-         s[count++] = '\\';
-         s[count++] = '\"';
-         break;
-      case '\'':
-         s[count++] = '\\';
-         s[count++] = '\'';
-         break;
       default:
          s[count++] = t[i];
          break;
@@ -74,7 +66,7 @@ void unescape(char t[], char s[])
    while (s[i] != '\0') {
       switch (s[i]) {
       case '\\':
-         switch (s[i+1]) {
+         switch (s[++i]) {
          case 't':
             t[count++] = '\t';
             break;
@@ -84,19 +76,10 @@ void unescape(char t[], char s[])
          case 'b':
             t[count++] = '\b';
             break;
-         case '\\':
-            t[count++] = '\\';
-            break;
-         case '\"':
-            t[count++] = '\"';
-            break;
-         case '\'':
-            t[count++] = '\'';
-            break;
          default:
             break;
          }
-         i += 2;
+         ++i;
          break;
       default:
          t[count++] = s[i++];

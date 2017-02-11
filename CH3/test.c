@@ -2,8 +2,6 @@
 
 main()
 {
-   printf("%d\n" , 3*(5%7));
-   if (2 == 2 == 1)
-      printf("fuu\n");
+   printf("%d\n" , 1 / 5);
    return 0;
 }

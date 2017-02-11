@@ -6,9 +6,11 @@
  * .
  */
 
-void expand(char s1[], char s2[]);
-#define MAXLENGTH 1000
 #include <stdio.h>
+
+#define MAXLENGTH 1000
+
+void expand(char s1[], char s2[]);
 
 main()
 {

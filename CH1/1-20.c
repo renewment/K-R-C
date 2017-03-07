@@ -20,6 +20,7 @@ main()
       if (c == '\t') {
          for (i = 0; i < counter; ++i)
             putchar(' ');
+         counter = N;
       } else if (c == '\n') {
          counter = N;
          putchar(c);

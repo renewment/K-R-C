@@ -1,0 +1,9 @@
+int array[5][10]; -> a 5x10 int array
+
+to create a pointer points to this array, we can write:
+   int (*p)[10] = array;, which means that p is a pointer point to a 1-d array whose
+   length is 10. Then we can use p like a normal array, ex: p[1][2] = 5;
+
+   we can also define pointer by int (*p)[5][10] = &array;, which means that p
+   is a pointer point to a 2-d 5x10 array. then we can operate with p by
+   (*p)[1][2] = 5;

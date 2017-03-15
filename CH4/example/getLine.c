@@ -1,8 +1,9 @@
 /*
- * Example code of function getline in Chapter 4
+ * Example code of function getline in Section 4.1
  */
 
-int getline(char s[], int lim)
+/* getLine:  get line into s, return length */
+int getLine(char s[], int lim)
 {
    int c, i;
    

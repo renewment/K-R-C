@@ -1,6 +1,7 @@
 /*
- * Exercise 5-14: Modify the sort program to handle a -r flag, which indicates
- * sorting in reverse (decreasing) order. Be sure that -r works with -n.
+ * Exercise 5-15: Add the option -f to fold upper and lower cae together, so
+ * that case distinctions are not made during sorting: for example, a and A 
+ * compare equal.
  */
 
 #include <stdio.h>
@@ -12,16 +13,18 @@ char *lineptr[MAXLINES];    /* pointers to text lines */
 int readlines(char *lineptr[], int nlines);
 void writelines(char *lineptr[], int nlines);
 
-void quickSort(void *lineptr[], int left, int right, int reverse,
+void quickSort(void *lineptr[], int left, int right,
+               char *(*fold)(char *, const char *),
                int (*comp)(void *, void *));
 int numcmp(char *, char *);
+char *foldCase(char *, const char *);
 
 /* sort input lines */
 main(int argc, char *argv[])
 {
    int nlines;            /* number of input lines read */
    int numeric = 0,       /* 1 if numeric sort */
-       reverse = 0;       /* descend order if reverse sort */
+       fold = 0;          /* 1 if fold case */
    char c;
    
    while (--argc && **++argv == '-') {
@@ -30,8 +33,8 @@ main(int argc, char *argv[])
          case 'n':
             numeric = 1;
             break;
-         case 'r':
-            reverse = 1;
+         case 'f':
+            fold = 1;
             break;
          default:
             goto error;
@@ -45,7 +48,8 @@ error:
    }
    
    if ((nlines = readlines(lineptr, MAXLINES)) >= 0) {
-      quickSort((void **) lineptr, 0, nlines-1, reverse,
+      quickSort((void **) lineptr, 0, nlines-1,
+                (char *(*)(char*,const char*))(fold ? foldCase : strcpy),
                 (int (*)(void*,void*))(numeric ? numcmp : strcmp));
       writelines(lineptr, nlines);
       return 0;
@@ -88,27 +92,26 @@ void writelines(char *lineptr[], int nlines)
 }
 
 /* quickSort:  sort v[left]...v[right] into increasing order */
-void quickSort(void *v[], int left, int right, int reverse,
+void quickSort(void *v[], int left, int right,
+               char *(*fold)(char *, const char *),
                int (*comp)(void *, void *))
 {
    int i, last;
    void swap(void *v[], int, int);
+   char pivot[MAXLEN], current[MAXLEN];
    
    if (left >= right)   /* do nothing if array contains */
       return;           /* fewer than two elements */
    swap(v, left, (left + right)/2);
    last = left;
-   if (!reverse) {
-      for (i = left+1; i <= right; i++)
-         if ((*comp)(v[i], v[left]) < 0)
-            swap(v, ++last, i);
-   } else
-      for (i = left+1; i <= right; i++)
-         if ((*comp)(v[i], v[left]) > 0)
-            swap(v, ++last, i);
+   (*fold)(pivot , v[left]);
+   for (i = left+1; i <= right; i++) {
+      if ( (*comp)((*fold)(current, v[i]), pivot) < 0 )
+         swap(v, ++last, i);
+   }
    swap(v, left, last);
-   quickSort(v, left, last-1, reverse, comp);
-   quickSort(v, last+1, right, reverse, comp);
+   quickSort(v, left, last-1, fold, comp);
+   quickSort(v, last+1, right, fold, comp);
 }
 
 #include <stdlib.h>
@@ -126,6 +129,16 @@ int numcmp(char *s1, char *s2)
       return 1;
    else
       return 0;
+}
+
+/* foldCase:  convert all alphabet to lower case */
+char *foldCase(char *d, const char *s)
+{
+   char *r = d;
+   while(*s)
+      *d++ = (*s >= 'A' && *s <= 'Z') ? *s++ - 'A' + 'a' : *s++;
+   *d = '\0';
+   return r;
 }
 
 /* swap:  interchange v[i] and v[j] */

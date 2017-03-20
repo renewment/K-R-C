@@ -1,5 +1,5 @@
 /*
- * Example code of function find
+ * Example code of function find in Section 5-10
  */
 
 #include <stdio.h>
@@ -15,11 +15,8 @@ main(int argc, char *argv[])
    long lineno = 0;
    int c, except = 0, number = 0, found = 0;
    
-   printf("at very first,\nargv: %d\t*argv: %d\n", (int) argv, (int) *argv);
    while (--argc > 0 && (*++argv)[0] == '-') {
-      printf("\targv: %d\t*argv: %d\n", (int) argv, (int) *argv);
       while (c = *++argv[0]) {
-         printf("\t\targv: %d\t*argv: %d\n", (int) argv, (int) *argv);
          switch (c) {
          case 'x':
             except = 1;

@@ -28,17 +28,17 @@ main(int argc, char *argv[])
    char c;
    
    while (--argc && **++argv == '-') {
-      c = *++*argv;
-      switch (c) {
-      case 'n':
-         numeric = 1;
-         break;
-      case 'r':
-         reverse = 1;
-         break;
-      default:
-         goto error;
-      }
+      while (c = *++*argv)
+         switch (c) {
+         case 'n':
+            numeric = 1;
+            break;
+         case 'r':
+            reverse = 1;
+            break;
+         default:
+            goto error;
+         }
    }
    if (argc) {
 error:

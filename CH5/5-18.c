@@ -1,5 +1,5 @@
 /*
- * Exercise 5-18: Make cdl recover from input errors.
+ * Exercise 5-18: Make dcl recover from input errors.
  *
  * Once an erroneus input is read, the consequent output will be wrong in first
  * version of dcl due to unread tokens.

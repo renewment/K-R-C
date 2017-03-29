@@ -7,11 +7,15 @@
  *              (dcl)
  *              direct-dcl(optional args)
  *              direct-dcl[optional size]
+ *              () (when parse arguments for function)
+ *              [] (when parse arguments for function)
  * args:        type dcl [, args]
  * type:        [optional qualifier] type
  * qualifiers:  [const | volatile]
  * type:        [void | char | short | int | long | float |
  *               double | signed | unsigned]
+ *
+ * Either int foo(int (*g)()) or int foo(int (*)()) is acceptable.
  */
 
 #include <stdio.h>

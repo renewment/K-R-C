@@ -123,7 +123,6 @@ void quickSort(struct listNode ** list, int start, int end)
    int mid = (start+end) / 2, last = start, i = start + 1;
    if (start >= end)
       return;
-   //printf("mid: %d, start: %d, end: %d, last: %d\n", mid, start, end, last);
    // move pivot to the head of array
    temp = *(list + start);
    *(list + start) = *(list + mid);
@@ -140,11 +139,9 @@ void quickSort(struct listNode ** list, int start, int end)
    temp = *(list+start);
    *(list+start) = *(list+last);
    *(list+last) = temp;
-   //printList(list, 3);
    
    // sort former and later sub-array
    quickSort(list, start, last - 1);
-   //printf("start: %d, last: %d, end: %d\n", start, last, end);
    quickSort(list, last + 1, end);
    return;
 }

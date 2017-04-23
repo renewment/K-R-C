@@ -51,9 +51,8 @@ main(int argc, char *argv[])
 /* getword:  get next word or character from input */
 int getword(char *word, int lim)
 {
-   int c, nextC, isString;
+   int c;
    char *w = word;
-   isString = 0;
    
    while ((isspace(c = getch()) || !isalpha(c)) && c != '\n' && c != EOF)
       ;

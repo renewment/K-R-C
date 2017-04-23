@@ -69,7 +69,7 @@ main(int argc, char *argv[])
 /* getword:  get next word or character from input */
 int getword(char *word, int lim)
 {
-   int c, previousC, nextC, escape, asterisk;
+   int c, nextC, escape, asterisk;
    char *w = word;
    escape = asterisk = 0;
    
@@ -93,7 +93,6 @@ int getword(char *word, int lim)
       return '\'';
    }
    if (c == '\"') {       // parse string
-      previousC = c;
       while ((c=getch()) != EOF) {
          if (c == '\\' && !escape)
             escape = 1;

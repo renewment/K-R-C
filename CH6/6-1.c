@@ -5,8 +5,6 @@
  *
  * My version only counts keywords of basic types and suppposes input is
  * syntactically and grammatically correct.
- *
- * Todo: comment parse format like /****** or ////////
  */
 
 #include <stdio.h>

@@ -4,11 +4,6 @@
  * first 6 characters, but different somewhere thereafter. Don't count words
  * within strings and comments. Make 6 a parameter that can be set from the
  * command line.
- *
- * I use the code of exercise 5-20 for parsing variable names and functions.
- *
- * TODO:
- * modify function codes in {}
  */
 
 #include <stdio.h>

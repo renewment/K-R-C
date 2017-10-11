@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #define MAXLINE   1000
-#define threshold 80
+#define THRESHOLD 80
 
 int copy(char line[], int lim);
 
@@ -15,7 +15,7 @@ main()
    char line[MAXLINE];
    
    while ((len = copy(line, MAXLINE)) > 0)
-      if (len > 80)
+      if (len > THRESHOLD)
          printf("length is %d, text is %s\n" , len, line);
       else
          printf("length is %d\n", len);
